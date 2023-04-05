@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+html {
+  --main-bg-color: #252525;
+  --primary-theme: #19A7CE;
+  --primary-theme-dark: #146C94;
+  --primary-theme-light: #52cbf0;
+  --secondary-theme: #F6F1F1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  background-color: var(--main-bg-color);
+  width: 100vw;
 }
 
-.App-link {
-  color: #61dafb;
+.main__container {
+  position: relative;
+  display: flex;
+  margin-top: 20vh;
+  flex-direction: column;
+  height: fit-content;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo__title {
+  color: var(--secondary-theme);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+}
+
+.todo__input {
+  background-color: var(--primary-theme-light);
+  border: 1px solid var(--primary-theme-light);
+  border: 0px;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border-radius: 4px 4px 0 0;
+  padding: 8px;
+  padding-left: 16px;
+  color: var(--main-bg-color);
+  height:40px;
+}
+
+.btn {
+  padding: 8px;
+  border: none;
+}
+
+.todo__input:focus {
+  border: none;
+  outline: none;
+}
+
+.todo__input::placeholder {
+  font-weight: 500;
+  font-style: italic;
+  font-family: 'Questrial', sans-serif;
+  opacity: 70%;
+}
+
+.todo__container {
+  width: min(60vw, 1000px);
+  height: 100px;
+  border-radius: 0 0 4px 4px;
+  background-color: var(--primary-theme);
 }
