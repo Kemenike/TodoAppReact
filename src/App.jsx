@@ -9,6 +9,10 @@ function App() {
     console.log(taskValue);
   }, [taskValue]);
 
+  function handleSubmit (event) {
+    event.preventDefault();
+    console.log("Submitted");
+  }
 
 
   return (
@@ -19,10 +23,10 @@ function App() {
             Todo App
           </h1>
         </div>
-        <form action="todo__input form">
+        <form className="todo__input_form" onSubmit={handleSubmit}>
           <input className="todo__input" type="text" placeholder='What are we doing today?'
-            onSubmit={setTask} />
-          <input type="submit" value="Add Task" className='btn'/>
+          />
+          <input type="submit" value="Add Task" className='todo__submit btn'/>
         </form>
         <div className="todo__container">
         </div>

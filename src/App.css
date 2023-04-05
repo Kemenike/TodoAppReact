@@ -4,6 +4,8 @@ html {
   --primary-theme-dark: #146C94;
   --primary-theme-light: #52cbf0;
   --secondary-theme: #F6F1F1;
+  --secondary-theme-dark: #c5c1c1;
+  --secondary-theme-dark-2: #949191;
 }
 
 * {
@@ -46,11 +48,14 @@ html {
   padding-left: 16px;
   color: var(--main-bg-color);
   height:40px;
+  order: 0;
 }
 
 .btn {
   padding: 8px;
   border: none;
+  width: 100%;
+  height: 100%;
 }
 
 .todo__input:focus {
@@ -63,6 +68,17 @@ html {
   font-style: italic;
   font-family: 'Questrial', sans-serif;
   opacity: 70%;
+}
+
+.todo__submit {
+  cursor: pointer;
+  grid-row-start: 1;
+  order: 1;
+  transition: background-color 100ms ease;
+}
+
+.todo__submit:active {
+  background-color: var(--secondary-theme-dark);
 }
 
 .todo__container {
