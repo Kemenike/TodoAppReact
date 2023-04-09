@@ -23,7 +23,7 @@ function App() {
             Todo App
           </h1>
         </div>
-        <form className="todo__input_form" onSubmit={handleSubmit}>
+        <form className="todo__form" onSubmit={handleSubmit}>
           <input className="todo__input" type="text" placeholder='What are we doing today?'
           />
           <input type="submit" value="Add Task" className='todo__submit btn'/>
