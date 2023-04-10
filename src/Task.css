@@ -1,0 +1,46 @@
+.task__container {
+    height: 132px;
+    position: relative;
+    width: auto;
+    color: white;
+    background-color: var(--primary-theme-dark);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 8px;
+}
+
+.done {
+    opacity: 0.5;
+}
+
+.done > .task__title {
+    text-decoration: line-through;
+}
+
+.done:hover {
+    opacity: 0.8;
+}
+
+.task__container:last-child {
+    margin-bottom: 0;
+}
+
+.task__btn__container {
+    position: absolute;
+    bottom: 16px;
+    display: flex;
+}
+
+.task__title {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    font-family: 'Questrial', sans-serif;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.task__btn {
+    font-family: 'Montserrat', sans-serif;
+    padding: 8px;
+    margin-right: 32px;
+}

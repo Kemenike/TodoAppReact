@@ -17,8 +17,10 @@ html {
 .app {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   background-color: var(--main-bg-color);
+  padding-bottom: 64px;
   width: 100vw;
 }
 
@@ -33,7 +35,8 @@ html {
 .todo__form {
   display: grid;
   grid-template-columns: 5fr 3fr 2fr;
-  grid-template-rows: 1fr1;
+  grid-template-rows: 1fr;
+  width: min(max(60vw, 500px), 1000px);
 }
 
 .todo__title {
@@ -90,8 +93,13 @@ html {
 }
 
 .todo__container {
-  width: min(60vw, 1000px);
-  height: 100px;
+  width: min(max(60vw, 500px), 1000px);
+  height: auto;
+  padding: 16px;
   border-radius: 0 0 4px 4px;
   background-color: var(--primary-theme);
+}
+
+.todo__container:empty {
+  height: 164px;
 }
