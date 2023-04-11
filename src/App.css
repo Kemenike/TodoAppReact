@@ -21,7 +21,8 @@ html {
   min-height: 100vh;
   background-color: var(--main-bg-color);
   padding-bottom: 64px;
-  width: 100vw;
+  width: auto;
+  min-width: 100vw;
 }
 
 .main__container {
