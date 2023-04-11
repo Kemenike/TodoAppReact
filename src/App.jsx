@@ -10,22 +10,29 @@ function App() {
   const inputField = useRef();
 
   useEffect(() => {
+    console.log(taskList);
   }, [taskList])
 
   function handleSubmit(event) {
     event.preventDefault();
     if (taskValue !== "") {
-      setTaskList(originalArr => [...originalArr, taskValue])
+      setTaskList(originalArr => [...originalArr,
+      {
+        key: `${crypto.randomUUID()}`,
+        name: `${taskValue}`,
+      }
+      ])
+      setTask("");
+      inputField.current.value = "";
     }
-    setTask("");
-    inputField.current.value = "";
   }
 
-  function testFunction(indx) {
-    const tempArr = taskList;
-    tempArr.splice(indx, 1);
-    console.log(tempArr);
-    setTaskList([...tempArr]);
+  function deleteComponenet(key) {
+    setTaskList(tasks =>
+      tasks.filter(task => {
+        return task.key !== key
+      })
+    )
   }
 
 
@@ -42,6 +49,7 @@ function App() {
             className="todo__input"
             type="text"
             ref={inputField}
+            maxlength="50"
             placeholder='What are we doing today?'
             onChange={e => setTask(e.target.value)}
           />
@@ -52,7 +60,7 @@ function App() {
         </form>
         <div className="todo__container">
           {
-            taskList.map((element, indx) => <Task key={indx} name={element} id={indx} btn__function={testFunction} />)
+            taskList.map((element) => <Task key={element.key} id={element.key}name={element.name} btn__function={deleteComponenet} />)
           }
         </div>
       </div>
