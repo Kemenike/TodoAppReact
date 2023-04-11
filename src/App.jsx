@@ -8,9 +8,17 @@ function App() {
   const [taskList, setTaskList] = useState([]);
 
   const inputField = useRef();
-
+  
+  //Get Task List from localstorage if it exists. 
   useEffect(() => {
-    console.log(taskList);
+    console.log(localStorage.getItem('task_list'));
+    const data = localStorage.getItem('task_list');
+    setTaskList(JSON.parse(data));
+  }, [])
+
+  //Store new tasklists in localstorage if it exists.
+  useEffect(() => {
+    localStorage.setItem('task_list', JSON.stringify(taskList))
   }, [taskList])
 
   function handleSubmit(event) {
@@ -35,6 +43,10 @@ function App() {
     )
   }
 
+  function clearTasks() {
+    setTaskList([]);
+  }
+
 
   return (
     <div className="app">
@@ -49,7 +61,7 @@ function App() {
             className="todo__input"
             type="text"
             ref={inputField}
-            maxlength="50"
+            maxLength="50"
             placeholder='What are we doing today?'
             onChange={e => setTask(e.target.value)}
           />
@@ -63,6 +75,7 @@ function App() {
             taskList.map((element) => <Task key={element.key} id={element.key}name={element.name} btn__function={deleteComponenet} />)
           }
         </div>
+        <button className="todo__clear_all" onClick={clearTasks}>Clear All</button>
       </div>
     </div>
   );
